@@ -85,6 +85,7 @@ import net.sf.openrocket.optimization.rocketoptimization.domains.StabilityDomain
 import net.sf.openrocket.optimization.rocketoptimization.goals.MaximizationGoal;
 import net.sf.openrocket.optimization.rocketoptimization.goals.MinimizationGoal;
 import net.sf.openrocket.optimization.rocketoptimization.goals.ValueSeekGoal;
+import net.sf.openrocket.optimization.rocketoptimization.parameters.FreeFallTimeParameter;
 import net.sf.openrocket.optimization.services.OptimizationServiceHelper;
 import net.sf.openrocket.rocketcomponent.Rocket;
 import net.sf.openrocket.rocketcomponent.RocketComponent;
@@ -1019,6 +1020,7 @@ public class GeneralOptimizationDialog extends JDialog {
 	private void loadOptimizationParameters() {
 		optimizationParameters.clear();
 		optimizationParameters.addAll(OptimizationServiceHelper.getOptimizableParameters(documentCopy));
+		optimizationParameters.add(new FreeFallTimeParameter());
 		
 		if (optimizationParameters.isEmpty()) {
 			throw new BugException("No rocket optimization parameters found, distribution built wrong.");
